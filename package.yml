@@ -1,0 +1,23 @@
+name       : gtef
+version    : 2.0.0
+release    : 1
+source     :
+    - https://download.gnome.org/sources/gtef/2.0/gtef-2.0.0.tar.xz : 12fb28b101bc14a7ed266a25e8ff41c0535e1201ce38905e443c8fca83e5ac71
+license    : LGPL-2.1
+component  : programming.library
+summary    : Gtef is a library that eases the development of GtkSourceView-based text editors and IDEs.
+description: |
+    Gtef is a library that eases the development of GtkSourceView-based text editors and IDEs.
+builddeps  :
+    - pkgconfig(gobject-introspection-1.0)
+    - pkgconfig(gtksourceview-3.0)
+    - pkgconfig(uchardet)
+    - gvfs-devel
+    - vala
+    - valgrind
+setup      : |
+    %configure --enable-gvfs-metadata
+build      : |
+    %make
+install    : |
+    %make_install -j1
